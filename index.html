@@ -6,12 +6,14 @@
     <title>Side bar Exercise</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        span {
-            margin-left: 25px;
-        }
+
         .liste-box {
             position: fixed;
-            right:0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            right: 0;
             bottom: 15px;
             border: 1px solid red;
             opacity: 0.8;
@@ -24,21 +26,28 @@
         }
 
         .liste-box:hover {
-            width: 130px; /* Hover durumunda genişlik */
+            width: 100px;
             background-color: red;
-        }    
-
-        .liste-box p {
-            margin: 10px 8px;
-            margin-left: 3px;
-            font-size: 16px;
-            font-weight: bolder;
-            font-family: 'Courier New', Courier, monospace;
-            margin-top: 12px;
-            color: wheat;
         }
 
-
+        .list-outline {
+            height: 20px; /* Resmin yüksekliği */
+            width: 20px;  /* Resmin genişliği */
+            filter: invert(1); /* Renk değişikliği (invert beyaz yapar) */
+            margin-right: 10px; /* Yazıdan biraz boşluk bırakır */
+        }
+        
+        .list-text {
+            display: none;
+        }
+        
+        .liste-box:hover .list-text {
+            display: inline;
+            color: white;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+    
         body {
             height: 3000px;
             padding-top: 60px;
@@ -280,7 +289,10 @@
     margin-top: 10px;
     width: 200px">div2</div>
 
-    <div class="liste-box"><p><span style="margin-left: 15px;"><span class="kapat-icon">&#10540;</span>&nbsp;listeler</span></p></div>
+   <div class="liste-box">
+        <img class="list-outline" src="images/list-outline.svg">
+        <p class="list-text">Listeler</p>
+    </div>
 
 
 </body>
