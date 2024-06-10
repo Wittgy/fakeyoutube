@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Side bar Exercise</title>
     <style>
+        span {
+            margin-left: 25px;
+        }
+        .liste-box {
+            position: fixed;
+            right:0;
+            bottom: 15px;
+            border: 1px solid red;
+            opacity: 0.8;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            height: 40px;
+            width: 40px;
+            background-color: rgb(253, 79, 79);
+            transition: width 0.3s ease;
+        }
+
+        .liste-box:hover {
+            width: 130px; /* Hover durumunda genişlik */
+            background-color: red;
+        }    
+
+        .liste-box p {
+            margin: 10px 8px;
+            margin-left: 3px;
+            font-size: 16px;
+            font-weight: bolder;
+            font-family: 'Courier New', Courier, monospace;
+            margin-top: 12px;
+            color: wheat;
+        }
+
+
         body {
             height: 3000px;
             padding-top: 60px;
@@ -137,7 +170,9 @@
         @media only screen and (max-width: 600px) {
            
             .right-side {
-               display: none;
+                width: 140px;
+                margin-left: 20px;
+                margin-right: 10px;
             }
             .left-side {
                 width: 60px;
@@ -145,10 +180,10 @@
                 
             }
             .Logo-pic {
-                width: 70px;
+                width: 50px;
             }
             img.menu-icon {
-                width: 30px;
+                width: 20px;
                 padding-left: 1px;
                 margin-left: 8px;
             }
@@ -157,11 +192,10 @@
                 margin-left: 120px;
             }
             .search-bar {
-                width: 100px;   
+                width: 100px;
+                
             }
-            .Arthur-logo {
-                font-size: 20px;   
-            }
+            
             /* Diğer stil kurallarınızı buraya ekleyin */
         }
 
@@ -208,20 +242,20 @@
 <body>
     <div class="header">
         <div class="left-side">
-            <div class="Toggle-button"><img src="hamburger-menu.svg" alt="" class="menu-icon"></div>
-            <div class="Logo"><img src="youtube-logo.svg" alt="" class="Logo-pic"></div>
+            <div class="Toggle-button"><img src="images/hamburger-menu.svg" alt="" class="menu-icon"></div>
+            <div class="Logo"><img src="images/youtube-logo.svg" alt="" class="Logo-pic"></div>
             <div class="Arthur-logo">Arthur</div>
         </div>
         <div class="middle">
             <input type="text" class="search-bar" placeholder="Search">
-            <button class="search-button"><img class="search-icon" src="search.svg" alt=""></button>
-            <button class="voice-button"><img class="voice-icon" src="voice-search-icon.svg" alt=""></button>
+            <button class="search-button"><img class="search-icon" src="images/search.svg" alt=""></button>
+            <button class="voice-button"><img class="voice-icon" src="images/voice-search-icon.svg" alt=""></button>
         </div>
         <div class="right-side">
-            <img class="upload-img" src="upload.svg" alt="">
-            <img class="youtube-apps-img" src="youtube-apps.svg" alt="">
-            <img class="notification-img" src="notifications.svg" alt="">
-            <img class="profile-img" src="cat.jpg" alt="">
+            <img class="upload-img" src="images/upload.svg" alt="">
+            <img class="youtube-apps-img" src="images/youtube-apps.svg" alt="">
+            <img class="notification-img" src="images/notifications.svg" alt="">
+            <img class="profile-img" src="images/cat.jpg" alt="">
         </div>
     </div>
     <div style="
@@ -242,6 +276,8 @@
     height: 200px;
     margin-top: 10px;
     width: 200px">div2</div>
+
+    <div class="liste-box"><p>&#10540;<span>listeler</span></div>
 
 
 </body>
