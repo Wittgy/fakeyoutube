@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side bar Exercise</title>
+    <style>
+        body {
+            height: 3000px;
+            padding-top: 60px;
+            padding-left: 80px;
+            background-color: rgb(243, 242, 242);
+        }
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            height: 50px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: rgb(207, 206, 206);
+            
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;   
+        }
+        .left-side {
+            display: flex;
+            align-items: center;
+
+        }
+
+        
+
+        img.Logo-pic {
+            height: 25px;
+        }
+
+        img.menu-icon {
+            height: 30px;
+            margin-right: 24px;
+            margin-left: 25px;
+        }
+        .search-icon {
+           height: 25px;
+           margin-top: 4px;
+        }
+        .search-button {
+            height: 41px;
+            width: 66px;
+            background-color: rgb(240, 240, 240);
+            border: 1px solid rgb(192, 192, 192);
+            margin-left: -1px;
+            margin-right: 10px;
+        }
+
+        .search-button:hover {
+            background-color: white;
+        }
+        .search-button:active {
+            background-color: rgb(192, 192, 192);
+        }
+        .voice-icon {
+            height: 25px;
+            margin-top: 4px;
+            
+        }
+        .voice-button {
+            height: 41px;
+            width: 41px;
+            border-radius: 20.5px;
+            border: none;
+            background-color: rgb(240, 240, 240);
+        }
+        .voice-button:hover {
+            background-color: white;
+            border: 1px solid gray;
+        }
+        .voice-button:active {
+            background-color: rgb(192, 192, 192);
+            
+        }
+        .middle { 
+            display: flex;
+            align-items: center;
+            max-width: 500px;
+            flex: 1;
+            margin-left: 70px;
+            margin-right: 35px;
+        }
+
+        .search-bar {
+            flex:1;
+            height: 37px;
+            font-size: 18px;
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid lightgray;
+            border-radius: 2px;
+            box-shadow: inset 1px 2px 5px rgba(0, 0, 0, 0.07);
+            padding-left: 16px;
+        }
+        .search-bar::placeholder {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+            padding-left: 4px;
+        }
+
+        .upload-img, .youtube-apps-img, .notification-img {
+            height: 30px;
+        }
+
+        .profile-img {
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            object-fit: cover; 
+        }
+        .right-side {
+            display: flex;
+            align-items: center;
+            width: 280px;
+            justify-content: space-between;
+            margin-right: 20px;
+        }
+
+        .Arthur-logo {
+            margin-bottom: 15px;
+            font-family: "Libre Barcode 128 Text", system-ui;
+            font-size: 25px;
+            margin-left: 3px;
+        }
+
+                /* Küçük cihazlar (telefonlar, 600px ve daha küçük) */
+        @media only screen and (max-width: 600px) {
+           
+            .right-side {
+                width: 140px;
+                margin-left: 20px;
+                margin-right: 10px;
+            }
+            .left-side {
+                width: 60px;
+                margin-left: 0;
+                
+            }
+            .Logo-pic {
+                width: 50px;
+            }
+            img.menu-icon {
+                width: 20px;
+                padding-left: 1px;
+                margin-left: 8px;
+            }
+            .middle {
+                max-width: 180px;
+                margin-left: 120px;
+            }
+            .search-bar {
+                width: 100px;
+                
+            }
+            
+            /* Diğer stil kurallarınızı buraya ekleyin */
+        }
+
+        /* Orta cihazlar (tabletler, 600px - 768px arası) */
+        @media only screen and (min-width: 601px) and (max-width: 768px) {
+            
+            .right-side {
+                width: 140px;
+                margin-left: 20px;
+                margin-right: 5px;
+            }
+            .left-side {
+                width: 100px;
+            }
+            .Logo-pic {
+                width: 70px;
+            }
+            .menu-icon {
+                width: 20px;
+            }
+            .middle {
+                max-width: 200px;
+                margin-left: 120px;
+            }
+            .search-bar {
+                width: 150px;
+            }
+            /* Diğer stil kurallarınızı buraya ekleyin */
+        }
+
+        /* Büyük cihazlar (masaüstü bilgisayarlar, 768px ve üstü) */
+        @media only screen and (min-width: 769px) {
+           
+            /* Diğer stil kurallarınızı buraya ekleyin */
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+    <div class="header">
+        <div class="left-side">
+            <div class="Toggle-button"><img src="images/hamburger-menu.svg" alt="" class="menu-icon"></div>
+            <div class="Logo"><img src="images/youtube-logo.svg" alt="" class="Logo-pic"></div>
+            <div class="Arthur-logo">Arthur</div>
+        </div>
+        <div class="middle">
+            <input type="text" class="search-bar" placeholder="Search">
+            <button class="search-button"><img class="search-icon" src="images/search.svg" alt=""></button>
+            <button class="voice-button"><img class="voice-icon" src="images/voice-search-icon.svg" alt=""></button>
+        </div>
+        <div class="right-side">
+            <img class="upload-img" src="images/upload.svg" alt="">
+            <img class="youtube-apps-img" src="images/youtube-apps.svg" alt="">
+            <img class="notification-img" src="images/notifications.svg" alt="">
+            <img class="profile-img" src="images/cat.jpg" alt="">
+        </div>
+    </div>
+    <div style="
+        background-color: white;
+        position: fixed;
+        top: 50px;
+        left: 0;    
+        bottom: 0px;
+        width: 72px;
+        
+        
+    "><div style="margin-left: 9px;">sidebar</div></div>
+
+    <div style="background-color: rgb(250, 100, 100);
+    height: 200px;
+    width: 200px">div1</div>
+    <div style="background-color: rgb(82, 108, 255);
+    height: 200px;
+    margin-top: 10px;
+    width: 200px">div2</div>
+
+
+</body>
+</html>
