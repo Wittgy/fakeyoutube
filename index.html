@@ -14,12 +14,12 @@
             right: 0;
             bottom: 15px;
             border: 1px solid red;
-            opacity: 0.8;
+            z-index: 3;
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
             height: 40px;
             width: 40px;
-            background-color: rgb(253, 79, 79);
+            background-color: rgb(255, 0, 0);
             transition: width 0.3s ease;
             border-right-width: 0;
         }
@@ -54,7 +54,7 @@
 
         body {
             height: 3000px;
-            padding-top: 60px;
+            padding-top: 45px;
             padding-left: 80px;
             background-color: rgb(243, 242, 242);
         }
@@ -68,7 +68,7 @@
             border-bottom-width: 1px;
             border-bottom-style: solid;
             border-bottom-color: rgb(207, 206, 206);
-            
+            z-index: 2;
             position: fixed;
             top: 0;
             left: 0;
@@ -125,7 +125,7 @@
          .profile-container .tooltip {
             font-family: 'Courier New', Courier, monospace;
             position: absolute;
-            background-color: gray;
+            background-color: rgba(128, 128, 128, 0.8);
             color: white;
             padding: 4px 8px;
             border-radius: 2px;
@@ -229,86 +229,199 @@
         }
 
                 /* Küçük cihazlar (telefonlar, 600px ve daha küçük) */
-        @media only screen and (max-width: 600px) {
-           
-            .right-side {
-                width: 140px;
-                margin-left: 20px;
-                margin-right: 10px;
-            }
-            .left-side {
-                width: 60px;
-                margin-left: 0;
-                
-            }
-            .Logo-pic {
-                width: 50px;
-            }
-            img.menu-icon {
-                width: 20px;
-                padding-left: 1px;
-                margin-left: 8px;
-            }
-            .middle {
-                max-width: 180px;
-                margin-left: 120px;
-            }
-            .search-bar {
-                width: 100px;
-                
-            }
-            .liste-box:hover .list-text {
-                display: inline;
-                color: white;
-                margin-left: 6px;
-                margin-right:5px;
-                font-size: 16px;
-                margin-top: 14px;
-            }
+@media only screen and (max-width: 600px) {
+    .right-side {
+        width: 100px; /* Adjusted to fit better on small screens */
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .left-side {
+        width: 60px;
+        margin-left: 0;
+    }
+    .Logo-pic {
+        width: 50px;
+    }
+    img.menu-icon {
+        width: 20px;
+        margin-left: 8px;
+    }
+    .middle {
+        max-width: 180px;
+        margin-left: 10px; /* Adjusted for better centering on small screens */
+    }
+    .search-bar {
+        width: 100px;
+    }
+    .liste-box:hover .list-text {
+        display: inline;
+        color: white;
+        margin-left: 6px;
+        font-size: 14px;
+    }
+    .video-picture {
+        width: 100%; /* Make video pictures responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+    .video-content {
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 20px; /* Space between video contents */
+    }
+}
+
+/* Orta cihazlar (tabletler, 600px - 768px arası) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .right-side {
+        width: 140px;
+        margin-left: 20px;
+        margin-right: 5px;
+    }
+    .left-side {
+        width: 100px;
+    }
+    .Logo-pic {
+        width: 70px;
+    }
+    .menu-icon {
+        width: 20px;
+    }
+    .middle {
+        max-width: 200px;
+        margin-left: 20px; /* Adjusted for better centering on tablets */
+    }
+    .search-bar {
+        width: 150px;
+    }
+    .video-picture {
+        width: 100%; /* Make video pictures responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+    .video-content {
+        width: 48%; /* Two columns on medium screens */
+        margin-bottom: 20px; /* Space between video contents */
+    }
+}
+
+/* Büyük cihazlar (masaüstü bilgisayarlar, 768px ve üstü) */
+@media only screen and (min-width: 769px) {
+    .right-side {
+        width: 280px;
+        margin-right: 20px;
+    }
+    .left-side {
+        width: auto;
+    }
+    .middle {
+        max-width: 500px;
+        margin-left: 70px;
+        margin-right: 35px;
+    }
+    .video-content {
+        width: 30%; /* Three columns on large screens */
+        margin-bottom: 20px; /* Space between video contents */
+    }
+}
+
+
+        /* Body içeriği */
+        .video-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%; /* Full width on mobile screens */
+            max-width: 390px; /* Maximum width to maintain structure on larger screens */
+            justify-content: space-between;
+            border: 1px solid transparent; 
+            box-sizing: border-box; 
+            transition: border-color 0.8s ease, box-shadow 0.8s ease, transform 0.8s ease, background-color 0.8s ease, opacity 0.8s ease;
+        }
+
+        .video-content:hover {
+            border-color: black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            background-color: rgba(255, 228, 196, 0.2);
+            opacity: 0.8;
+            position: relative; /* .video-content üzerine hover olduğunda içeriğin z-index'ini değiştirmek için mutlak konumlandırma kullanın */
+            z-index: 1; /* Header'ın altında kalmasını sağlamak için düşük bir z-index değeri atayın */
+        }
+        .video-picture {
+            width: 100%; /* Full width */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the container while maintaining aspect ratio */
+        }
+
+        .video-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: top;
+        }
+
+        .video-profile-picture {
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            margin-top: 25px;
+        }
+        .paragraf {
+            margin-left: 10px;
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            flex-direction: column;
             
-            /* Diğer stil kurallarınızı buraya ekleyin */
         }
-
-        /* Orta cihazlar (tabletler, 600px - 768px arası) */
-        @media only screen and (min-width: 601px) and (max-width: 768px) {
-            
-            .right-side {
-                width: 140px;
-                margin-left: 20px;
-                margin-right: 5px;
-            }
-            .left-side {
-                width: 100px;
-            }
-            .Logo-pic {
-                width: 70px;
-            }
-            .menu-icon {
-                width: 20px;
-            }
-            .middle {
-                max-width: 200px;
-                margin-left: 120px;
-            }
-            .search-bar {
-                width: 150px;
-            }
-            /* Diğer stil kurallarınızı buraya ekleyin */
-        }
-
-        /* Büyük cihazlar (masaüstü bilgisayarlar, 768px ve üstü) */
-        @media only screen and (min-width: 769px) {
-           
-            /* Diğer stil kurallarınızı buraya ekleyin */
-        }
-
        
+        .video-stats p {
+            line-height: 0.3;
+            font-size: 13px;  
+        }
+        
+        
+        .video-caption p {
+            font-size: 16px;
+        }
+      
+        .Arthur-stars {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }  
 
+        .star-rating {
+            margin-left: 8px;
+            margin-top: -5px;
+        }
+        .profile-statistics {
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+        .statistics p {
+            margin-top: 2px;
+        }
+         
+        .video-stats {
+            margin-top: -8px;
+        }
+
+        .main-video-preview {
+    display: flex;
+    flex-wrap: wrap; /* Allow videos to wrap onto new lines on smaller screens */
+    justify-content: space-between; /* Space between video contents */
+    margin-top: 10px;
+}
+
+        .video-caption, .video-picture {
+            cursor: pointer;
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -360,16 +473,222 @@
         
     "><div style="margin-left: 9px;">sidebar</div></div>
 
-    <div style="background-color: rgb(250, 100, 100);
-    height: 200px;
-    width: 200px">div1</div>
-    <div style="background-color: rgb(82, 108, 255);
-    height: 200px;
-    margin-top: 10px;
-    width: 200px">div2</div>
+    <div class="main-video-preview">
+        
+        <div class="video-content">
+            <a style="text-decoration: none;
+            color: inherit;
+            " href="https://www.youtube.com/watch?v=wcxdCUIg-C8&t=2s">
+                <img class="video-picture" src="80s-90s.jpg" alt="">
+                <div class="video-info">
+                    <div><img class="video-profile-picture" src="cat.jpg" alt=""></div>
+                    <div class="paragraf">
+                        <a style="text-decoration: none;
+                        color: inherit;
+                        " href="https://www.youtube.com/watch?v=wcxdCUIg-C8&t=2s">
+                            <div class="video-caption">
+                                <p><strong>Scorpions, Aerosmith, Deep Purple, Bon Jovi, Ledzeppelin,The Eagles -Best Slow Rock Ballads 80s, 90s</strong></p>
+                            </div>
+                            <div class="video-stats">
+                                <div class="profile-statistics">
+                                    <div class="Arthur-stars">
+                                        <p class="profile-name">Arthur's Choice</p>
+                                        <div class="star-rating">
+                                            <span class="star" data-value="5">&#9733;</span>
+                                            <span class="star" data-value="4">&#9733;</span>
+                                            <span class="star" data-value="3">&#9733;</span>
+                                            <span class="star" data-value="2">&#9733;</span>
+                                            <span class="star" data-value="1">&#9733;</span>
+                                        </div>
+                                    </div>
+                                    <div class="statistics"><p>1.9MN Views&nbsp;&#183; 1 day ago</p></div>
+                                </div>   
+                            </div>
+                            
+                    </div>
+                    
+                    
+                </div>
+            </a>
+        </div>
+
+        <div class="video-content">
+            <a style="text-decoration: none;
+            color: inherit;
+            " href="https://www.youtube.com/watch?v=6Ejga4kJUts">
+            <img class="video-picture" src="Thecranberries.jpg" alt="">
+            <div class="video-info">
+                <div><img class="video-profile-picture" src="cat.jpg" alt=""></div>
+                <div class="paragraf">
+                   
+                        <div class="video-caption">
+                            <p><strong>The Cranberries - Zombie (Official Music Video)</strong></p>
+                        </div>
+                        <div class="video-stats">
+                            <div class="profile-statistics">
+                                <div class="Arthur-stars">
+                                    <p class="profile-name">Arthur's Choice</p>
+                                    <div class="star-rating">
+                                        <span class="star" data-value="5">&#9733;</span>
+                                        <span class="star" data-value="4">&#9733;</span>
+                                        <span class="star" data-value="3">&#9733;</span>
+                                        <span class="star" data-value="2">&#9733;</span>
+                                        <span class="star" data-value="1">&#9733;</span>
+                                    </div>
+                                </div>
+                                <div class="statistics"><p>1.5MN Views&nbsp;&#183; 2 days ago</p></div>
+                            </div>   
+                        </div>
+                          
+                </div>
+                
+                
+            </div>
+            </a>  
+        </div>
+
+        <div class="video-content">
+            <a style="text-decoration: none;
+                    color: inherit;
+                    " href="https://www.youtube.com/watch?v=JbjzPKTfjlc">
+            <img class="video-picture" src="Ludovici.jpg" alt="">
+            <div class="video-info">
+                <div><img class="video-profile-picture" src="cat.jpg" alt=""></div>
+                <div class="paragraf">
+                    
+                        <div class="video-caption">
+                            <p><strong>Ludovico Einaudi - Nuvole Bianche (Alexander Flemming)</strong></p>
+                        </div>
+                        <div class="video-stats">
+                            <div class="profile-statistics">
+                                <div class="Arthur-stars">
+                                    <p class="profile-name">Arthur's Choice</p>
+                                    <div class="star-rating">
+                                        <span class="star" data-value="5">&#9733;</span>
+                                        <span class="star" data-value="4">&#9733;</span>
+                                        <span class="star" data-value="3">&#9733;</span>
+                                        <span class="star" data-value="2">&#9733;</span>
+                                        <span class="star" data-value="1">&#9733;</span>
+                                    </div>
+                                </div>
+                                <div class="statistics"><p>34MN Views&nbsp;&#183; 4 days ago</p></div>
+                            </div>   
+                        </div>
+                      
+                </div>
+                
+                
+            </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="main-video-preview">
+        
+        <div class="video-content">
+            <a style="text-decoration: none;
+            color: inherit;
+            " href="https://www.youtube.com/watch?v=ZPoym74WlJ4">
+            <img class="video-picture" src="the-best-classical.jpg" alt="">
+            <div class="video-info">
+                <div><img class="video-profile-picture" src="cat.jpg" alt=""></div>
+                <div class="paragraf">
+                    <div class="video-caption">
+                        <p><strong>Beethoven, Mozart, Schubert, Chopin, Bach .. Cilt 173</strong></p>
+                    </div>
+                    <div class="video-stats">
+                        <div class="profile-statistics">
+                            <div class="Arthur-stars">
+                                <p class="profile-name">Arthur's Choice</p>
+                                <div class="star-rating">
+                                    <span class="star" data-value="5">&#9733;</span>
+                                    <span class="star" data-value="4">&#9733;</span>
+                                    <span class="star" data-value="3">&#9733;</span>
+                                    <span class="star" data-value="2">&#9733;</span>
+                                    <span class="star" data-value="1">&#9733;</span>
+                                </div>
+                            </div>
+                            <div class="statistics"><p>541B Views&nbsp;&#183; 13 hours ago</p></div>
+                        </div>   
+                    </div>    
+                </div>
+                
+                
+            </div>
+            </a>
+        </div>
+
+        <div class="video-content">
+            <a style="text-decoration: none;
+            color: inherit;
+            " href="https://www.youtube.com/watch?v=GF5SlU9YA70">
+            <img class="video-picture" src="evgeny-fields.jpg" alt="">
+            <div class="video-info">
+                <div><img class="video-profile-picture" src="cat.jpg" alt=""></div>
+                <div class="paragraf">
+                    <div class="video-caption">
+                        <p><strong>Evgeny Grinko - Field</strong></p>
+                    </div>
+                    <div class="video-stats">
+                        <div class="profile-statistics">
+                            <div class="Arthur-stars">
+                                <p class="profile-name">Arthur's Choice</p>
+                                <div class="star-rating">
+                                    <span class="star" data-value="5">&#9733;</span>
+                                    <span class="star" data-value="4">&#9733;</span>
+                                    <span class="star" data-value="3">&#9733;</span>
+                                    <span class="star" data-value="2">&#9733;</span>
+                                    <span class="star" data-value="1">&#9733;</span>
+                                </div>
+                            </div>
+                            <div class="statistics"><p>6MN Views&nbsp;&#183; 5 days ago</p></div>
+                        </div>   
+                    </div>    
+                </div>
+                
+                
+            </div>
+            </a>
+        </div>
+
+        <div class="video-content">
+            <a style="text-decoration: none;
+            color: inherit;
+            " href="https://www.youtube.com/watch?v=XLQfjPi1gaM">
+            <img class="video-picture" src="sonsOfAnarchy.jpg" alt="">
+            <div class="video-info">
+                <div><img class="video-profile-picture" src="cat.jpg" alt=""></div>
+                <div class="paragraf">
+                    <div class="video-caption">
+                        <p><strong>Sons of Anarchy - Come Join the Murder (The White Buffalo & The Forest Rangers)</strong></p>
+                    </div>
+                    <div class="video-stats">
+                        <div class="profile-statistics">
+                            <div class="Arthur-stars">
+                                <p class="profile-name">Arthur's Choice</p>
+                                <div class="star-rating">
+                                    <span class="star" data-value="5">&#9733;</span>
+                                    <span class="star" data-value="4">&#9733;</span>
+                                    <span class="star" data-value="3">&#9733;</span>
+                                    <span class="star" data-value="2">&#9733;</span>
+                                    <span class="star" data-value="1">&#9733;</span>
+                                </div>
+                            </div>
+                            <div class="statistics"><p>253B Views&nbsp;&#183; 6 days ago</p></div>
+                        </div>   
+                    </div>    
+                </div>
+                
+                
+            </div>
+            </a>
+        </div>
+
+    </div>
 
     <div class="liste-box">
-        <img class="list-outline" src="list-outline.svg">
+        <img class="list-outline" src="images/list-outline.svg">
         <p class="list-text">Listeler</p>
     </div>
 
