@@ -229,6 +229,16 @@
         }
 
                 /* Küçük cihazlar (telefonlar, 600px ve daha küçük) */
+@media only screen and (min-width: 320px) and (max-width: 399px) {
+    .middle {
+        display: none;
+    }
+    .header {
+        justify-content: space-evenly;
+        gap: 60px;
+    }
+}
+        
 @media only screen and (max-width: 600px) {
     .right-side {
         width: 100px; /* Adjusted to fit better on small screens */
