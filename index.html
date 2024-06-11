@@ -55,7 +55,7 @@
         body {
             height: 3000px;
             padding-top: 45px;
-            padding-left: 80px;
+            padding-left: 90px;
             background-color: rgb(243, 242, 242);
         }
         .header {
@@ -269,6 +269,24 @@
     }
 }
 
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+    .middle {
+        display: none;
+    }
+    .header {
+        justify-content: space-evenly;
+        flex-shrink: 0;
+    }
+    .right-side {
+        margin-left: 90px;
+        row-gap: 20px;
+        width: 150px; 
+        margin-right: -30px;
+    }
+    .left-side {
+        margin-left: -35px;
+    }
+}
 /* Orta cihazlar (tabletler, 600px - 768px arası) */
 @media only screen and (min-width: 601px) and (max-width: 768px) {
     .right-side {
@@ -412,9 +430,39 @@
     margin-top: 10px;
 }
 
-        .video-caption, .video-picture {
-            cursor: pointer;
-        }
+.video-caption, .video-picture {
+    cursor: pointer;
+}
+
+.sidebar {
+    background-color: white;
+    position: fixed;
+    top: 50px;
+    left: 0;    
+    bottom: 0px;
+    width: 85px;
+    z-index: 4;
+}
+.sidebar-link {
+    height: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+       
+}
+.sidebar-link:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.sidebar-link img {
+    height: 30px;
+}
+
+.sidebar-link div {
+    font-size: 12px;
+    font-family: "Roboto", "Arial";
+}
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -462,16 +510,33 @@
             
         </div>
     </div>
-    <div style="
-        background-color: white;
-        position: fixed;
-        top: 50px;
-        left: 0;    
-        bottom: 0px;
-        width: 72px;
-        
-        
-    "><div style="margin-left: 9px;">sidebar</div></div>
+
+    <div class="sidebar">
+        <div class="sidebar-link">
+            <img class="home-img" src="home.svg" alt="">
+            <div>Home</div>
+        </div>    
+        <div class="sidebar-link">
+            <img class="subscriptions-img" src="explore.svg" alt="">
+            <div>Explore</div>
+        </div>   
+        <div class="sidebar-link">
+            <img class="library-img" src="subscriptions.svg" alt="">
+            <div>Subscriptions</div>
+        </div>    
+        <div class="sidebar-link">
+            <img class="history-img" src="originals.svg" alt="">
+            <div>Originals</div>
+        </div>    
+        <div class="sidebar-link">
+            <img class="more-img" src="youtube-music.svg" alt="">
+            <div>Youtube Music</div>
+        </div>    
+        <div class="sidebar-link">
+            <img class="settings-img" src="library.svg" alt="">
+            <div>Library</div>
+        </div>    
+    </div>
 
     <div class="main-video-preview">
         
